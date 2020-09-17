@@ -23,11 +23,18 @@
 namespace sensics {
 namespace subdiv2d {
     template <typename T, std::size_t MaxSize> using MaxSizeVector = boost::container::static_vector<T, MaxSize>;
+
 } // namespace subdiv2d
 } // namespace sensics
 
 #else
-#error "Haven't written antyhing on this path yet sorry!"
+#include "FixedMaxSizeArrayImpl.h"
+namespace sensics {
+namespace subdiv2d {
+    template <typename T, std::size_t MaxSize> using MaxSizeVector = ::MaxSizeVector<T, MaxSize>;
+
+} // namespace subdiv2d
+} // namespace sensics
 #endif
 
 #endif // INCLUDED_FixedMaxSizeArray_h_GUID_3B5F9209_0B80_4A91_B0D4_5CCAF36EF73A
